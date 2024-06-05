@@ -1,4 +1,5 @@
-entrypoint = "main.py"
+run = "cd whatsapp-assistants-api && fastapi dev main.py --port 8080"
+entrypoint = "whatsapp-assistants-api/main.py"
 modules = ["python-3.10:v18-20230807-322e88b"]
 
 [nix]
@@ -11,9 +12,8 @@ language = "python3"
 requiredFiles = [".replit", "replit.nix"]
 
 [deployment]
-run = ["sh", "-c", "fastapi run main.py"]
+run = ["sh", "-c", "fastapi run whatsapp-assistants-api/main.py"]
 deploymentTarget = "cloudrun"
-build = ["sh", "-c", "pip install fastapi openai"]
 
 [[ports]]
 localPort = 8000
